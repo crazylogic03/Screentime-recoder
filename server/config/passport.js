@@ -5,6 +5,10 @@ import dotenv from "dotenv";
 
 dotenv.config();
 console.log("Loaded Google Client ID:", process.env.GOOGLE_CLIENT_ID);
+if (!process.env.GOOGLE_CLIENT_ID) {
+  throw new Error("❌ GOOGLE_CLIENT_ID not found in .env");
+}
+
 
 
 passport.use(
