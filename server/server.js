@@ -1,13 +1,14 @@
-import express from "express";
+// ✅ Load .env before anything else
 import dotenv from "dotenv";
+dotenv.config(); 
+
+import express from "express";
 import cors from "cors";
 import session from "express-session";
-import passport from "./config/passport.js";
+import passport from "./config/passport.js"; // this needs .env variables
 import { connectDB } from "./config/db.js";
 import userRouter from "./routes/user.route.js";
 import authRouter from "./routes/auth.route.js";
-
-dotenv.config();
 
 const app = express();
 const port = 3000;
