@@ -1,14 +1,14 @@
+import dotenv from "dotenv";
+dotenv.config();
+
+console.log("✅ GOOGLE_CLIENT_ID:", process.env.GOOGLE_CLIENT_ID);
+if (!process.env.GOOGLE_CLIENT_ID) {
+  throw new Error("❌ GOOGLE_CLIENT_ID is undefined — check .env file!");
+}
+
 import passport from 'passport';
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
 import User from '../models/user.model.js';
-import dotenv from "dotenv";
-
-dotenv.config();
-console.log("Loaded Google Client ID:", process.env.GOOGLE_CLIENT_ID);
-if (!process.env.GOOGLE_CLIENT_ID) {
-  throw new Error("❌ GOOGLE_CLIENT_ID not found in .env");
-}
-
 
 
 passport.use(
