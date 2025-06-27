@@ -1,9 +1,6 @@
-import dotenv from "dotenv";
-dotenv.config();
+// ✅ Load environment variables before everything else
+import "./loadEnv.js";
 
-console.log("🌱 Loaded from .env:", process.env.GOOGLE_CLIENT_ID); // Add this debug line
-
-// Then import the rest
 import express from "express";
 import cors from "cors";
 import session from "express-session";
@@ -11,6 +8,7 @@ import passport from "./config/passport.js";
 import { connectDB } from "./config/db.js";
 import userRouter from "./routes/user.route.js";
 import authRouter from "./routes/auth.route.js";
+
 
 const app = express();
 const port = 3000;
